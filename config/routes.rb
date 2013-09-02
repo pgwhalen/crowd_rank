@@ -1,4 +1,5 @@
 CrowdRank::Application.routes.draw do
+  devise_for :users
   get "users/new"
 
   root :to => 'static_pages#home'
