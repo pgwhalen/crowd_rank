@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-CrowdRank::Application.config.secret_key_base = 'f2a699d188ca65443082f03ba1020296f5a9da1dea9de810c41e9d249a34a460caeb59f7d14e5fbd14a09812be67524fe8cfd0ca0957462567de5b957d939f80'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+CrowdRank::Application.config.secret_key_base = secure_token

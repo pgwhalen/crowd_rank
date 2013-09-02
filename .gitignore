@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Other stuff to ignore
+database.yml
+doc/
+.project
+.secret
