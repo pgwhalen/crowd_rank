@@ -1,5 +1,6 @@
 CrowdRank::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :path => '', :path_names => {:sign_in => 'signin', :sign_out => 'signout'}
+
   get "users/new"
 
   root :to => 'static_pages#home'
