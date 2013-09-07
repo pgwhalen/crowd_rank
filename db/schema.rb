@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902031015) do
+ActiveRecord::Schema.define(version: 20130907212850) do
+
+  create_table "rankings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "team_group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ranks", force: true do |t|
+    t.integer  "value"
+    t.string   "comment"
+    t.integer  "ranking_id"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "team_groups", force: true do |t|
+    t.string "full_name"
+    t.string "short_name"
+  end
+
+  create_table "team_groups_teams", id: false, force: true do |t|
+    t.integer "team_id",       null: false
+    t.integer "team_group_id", null: false
+  end
+
+  add_index "team_groups_teams", ["team_group_id", "team_id"], name: "index_team_groups_teams_on_team_group_id_and_team_id", using: :btree
+  add_index "team_groups_teams", ["team_id", "team_group_id"], name: "index_team_groups_teams_on_team_id_and_team_group_id", using: :btree
 
   create_table "teams", force: true do |t|
     t.string "full_name"
