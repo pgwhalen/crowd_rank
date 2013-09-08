@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907212850) do
+ActiveRecord::Schema.define(version: 20130908031337) do
 
   create_table "rankings", force: true do |t|
     t.integer  "user_id"
@@ -42,10 +42,31 @@ ActiveRecord::Schema.define(version: 20130907212850) do
   add_index "team_groups_teams", ["team_group_id", "team_id"], name: "index_team_groups_teams_on_team_group_id_and_team_id", using: :btree
   add_index "team_groups_teams", ["team_id", "team_group_id"], name: "index_team_groups_teams_on_team_id_and_team_group_id", using: :btree
 
+  create_table "team_groups_user_groups", id: false, force: true do |t|
+    t.integer "user_group_id", null: false
+    t.integer "team_group_id", null: false
+  end
+
+  add_index "team_groups_user_groups", ["team_group_id", "user_group_id"], name: "team_g_user_g_index", using: :btree
+  add_index "team_groups_user_groups", ["user_group_id", "team_group_id"], name: "user_g_team_g_index", using: :btree
+
   create_table "teams", force: true do |t|
     t.string "full_name"
     t.string "location"
     t.string "nickname"
+  end
+
+  create_table "user_group_subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "user_group_subscription_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_groups", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
