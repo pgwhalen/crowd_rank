@@ -7,46 +7,61 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # NFL Teams
-Team.create([{ full_name: 'Buffalo Bills', location: 'Buffalo', nickname: 'Saints' },
-						 { full_name: 'Miami Dolphins', location: 'Miami', nickname: 'Dolphins' },
-						 { full_name: 'New England Patriots', location: 'New England', nickname: 'Patriots' },
-						 { full_name: 'New York Jets', location: 'New York', nickname: 'Jets' },
+afc_east = Team.create([{ full_name: 'Buffalo Bills', location: 'Buffalo', nickname: 'Saints' },
+												{ full_name: 'Miami Dolphins', location: 'Miami', nickname: 'Dolphins' },
+												{ full_name: 'New England Patriots', location: 'New England', nickname: 'Patriots' },
+												{ full_name: 'New York Jets', location: 'New York', nickname: 'Jets' }])
 
-						 { full_name: 'Baltimore Ravens', location: 'Baltimore', nickname: 'Ravens' },
-						 { full_name: 'Cincinnati Bengals', location: 'Cincinnati', nickname: 'Bengals' },
-						 { full_name: 'Cleveland Browns', location: 'Cleveland', nickname: 'Browns' },
-						 { full_name: 'Pittsburgh Steelers', location: 'Pittsburgh', nickname: 'Steelers' },
+afc_north = Team.create([{ full_name: 'Baltimore Ravens', location: 'Baltimore', nickname: 'Ravens' },
+												 { full_name: 'Cincinnati Bengals', location: 'Cincinnati', nickname: 'Bengals' },
+												 { full_name: 'Cleveland Browns', location: 'Cleveland', nickname: 'Browns' },
+												 { full_name: 'Pittsburgh Steelers', location: 'Pittsburgh', nickname: 'Steelers' }])
 
-						 { full_name: 'Houston Texans', location: 'Houston', nickname: 'Texans' },
-						 { full_name: 'Indianapolis Colts', location: 'Indianapolis', nickname: 'Colts' },
-						 { full_name: 'Jacksonville Jaguars', location: 'Jacksonville', nickname: 'Jaguars' },
-						 { full_name: 'Tennessee Titans', location: 'Tennessee', nickname: 'Titans' },
+afc_south = Team.create([{ full_name: 'Houston Texans', location: 'Houston', nickname: 'Texans' },
+												 { full_name: 'Indianapolis Colts', location: 'Indianapolis', nickname: 'Colts' },
+												 { full_name: 'Jacksonville Jaguars', location: 'Jacksonville', nickname: 'Jaguars' },
+												 { full_name: 'Tennessee Titans', location: 'Tennessee', nickname: 'Titans' }])
 
-						 { full_name: 'Denver Broncos', location: 'Denver', nickname: 'Broncos' },
-						 { full_name: 'Kansas City Chiefs', location: 'Kansas City', nickname: 'Chiefs' },
-						 { full_name: 'Oakland Raiders', location: 'Oakland', nickname: 'Raiders' },
-						 { full_name: 'San Diego Chargers', location: 'San Diego', nickname: 'Chargers' },
+afc_west = Team.create([{ full_name: 'Denver Broncos', location: 'Denver', nickname: 'Broncos' },
+											  { full_name: 'Kansas City Chiefs', location: 'Kansas City', nickname: 'Chiefs' },
+											  { full_name: 'Oakland Raiders', location: 'Oakland', nickname: 'Raiders' },
+											  { full_name: 'San Diego Chargers', location: 'San Diego', nickname: 'Chargers' }])
 
-						 { full_name: 'Dallas Cowboys', location: 'Dallas', nickname: 'Cowboys' },
-						 { full_name: 'New York Giants', location: 'New York', nickname: 'Giants' },
-						 { full_name: 'Philadelphia Eagles', location: 'Philadelphia', nickname: 'Eagles' },
-						 { full_name: 'Washington Redskins', location: 'Washington', nickname: 'Washington' },
+nfc_east = Team.create([{ full_name: 'Dallas Cowboys', location: 'Dallas', nickname: 'Cowboys' },
+											  { full_name: 'New York Giants', location: 'New York', nickname: 'Giants' },
+											  { full_name: 'Philadelphia Eagles', location: 'Philadelphia', nickname: 'Eagles' },
+											  { full_name: 'Washington Redskins', location: 'Washington', nickname: 'Redskins' }])
 
-						 { full_name: 'Chicago Bears', location: 'Chicago', nickname: 'Bears' },						 
-						 { full_name: 'Detroit Lions', location: 'Detroit', nickname: 'Lions' },
-						 { full_name: 'Green Bay Packers', location: 'Green Bay', nickname: 'Packers' },
-						 { full_name: 'Minnesota Vikings', location: 'Minnesota', nickname: 'Vikings' },
+nfc_north = Team.create([{ full_name: 'Chicago Bears', location: 'Chicago', nickname: 'Bears' },						 
+												 { full_name: 'Detroit Lions', location: 'Detroit', nickname: 'Lions' },
+												 { full_name: 'Green Bay Packers', location: 'Green Bay', nickname: 'Packers' },
+												 { full_name: 'Minnesota Vikings', location: 'Minnesota', nickname: 'Vikings' }])
 
-						 { full_name: 'Atlanta Falcons', location: 'Atlanta', nickname: 'Falcons' },
-						 { full_name: 'Carolina Panthers', location: 'Carolina', nickname: 'Panthers' },
-						 { full_name: 'New Orleans Saints', location: 'New Orleans', nickname: 'Saints' },
-						 { full_name: 'Tampa Bay Buccaneers', location: 'Tampa Bay', nickname: 'Buccaneers' },
+nfc_south = Team.create([{ full_name: 'Atlanta Falcons', location: 'Atlanta', nickname: 'Falcons' },
+												 { full_name: 'Carolina Panthers', location: 'Carolina', nickname: 'Panthers' },
+												 { full_name: 'New Orleans Saints', location: 'New Orleans', nickname: 'Saints' },
+												 { full_name: 'Tampa Bay Buccaneers', location: 'Tampa Bay', nickname: 'Buccaneers' }])
 
-						 { full_name: 'Arizona Cardinals', location: 'Arizona', nickname: 'Cardinals' },
-						 { full_name: 'St. Louis Rams', location: 'St. Louis', nickname: 'Rams' },
-						 { full_name: 'San Fransisco 49ers', location: 'San Fransisco', nickname: '49ers' },
-						 { full_name: 'Seattle Seahawks', location: 'Seattle', nickname: 'Seahawks' },
-	          ])
+nfc_west = Team.create([{ full_name: 'Arizona Cardinals', location: 'Arizona', nickname: 'Cardinals' },
+											  { full_name: 'St. Louis Rams', location: 'St. Louis', nickname: 'Rams' },
+											  { full_name: 'San Fransisco 49ers', location: 'San Fransisco', nickname: '49ers' },
+											  { full_name: 'Seattle Seahawks', location: 'Seattle', nickname: 'Seahawks' }])
+
+TeamGroup.create({ full_name: 'American Football Conference East', short_name: "AFC East"}).teams << afc_east
+TeamGroup.create({ full_name: 'American Football Conference North', short_name: "AFC North"}).teams << afc_north
+TeamGroup.create({ full_name: 'American Football Conference South', short_name: "AFC South"}).teams << afc_south
+TeamGroup.create({ full_name: 'American Football Conference West', short_name: "AFC West"}).teams << afc_west
+TeamGroup.create({ full_name: 'National Football Conference East', short_name: "NFC East"}).teams << nfc_east
+TeamGroup.create({ full_name: 'National Football Conference North', short_name: "NFC North"}).teams << nfc_north
+TeamGroup.create({ full_name: 'National Football Conference South', short_name: "NFC South"}).teams << nfc_south
+TeamGroup.create({ full_name: 'National Football Conference West', short_name: "NFC West"}).teams << nfc_west
+
+TeamGroup.create({ full_name: 'American Football Conference', short_name: 'AFC'}).teams << afc_east << afc_north << afc_south << afc_west
+TeamGroup.create({ full_name: 'National Football Conference', short_name: 'NFC'}).teams << nfc_east << nfc_north << nfc_south << nfc_west
+
+TeamGroup.create({ full_name: 'National Football League', short_name: 'NFL'}).teams << afc_east << afc_north << afc_south << afc_west << nfc_east << nfc_north << nfc_south << nfc_west
+
+						          
 
 # MLB Teams
 # TODO
