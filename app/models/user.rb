@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   validates :password, length: { minimum: 6 }
 
-  has_many :user_groups, through: :user_group_subscription
   has_many :user_group_subscriptions
+  has_many :user_groups, through: :user_group_subscriptions
   has_many :rankings
 end
