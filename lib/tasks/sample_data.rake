@@ -13,6 +13,7 @@ namespace :db do
 		end
 
 		nfl_testers = UserGroup.create!(name: 'nfl testers')
+		nfl_testers.team_groups << TeamGroup.find_by_short_name("NFL")
 		User.find(1).user_groups << nfl_testers
 		User.find(2).user_groups << nfl_testers
 	end
