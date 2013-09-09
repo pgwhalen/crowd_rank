@@ -33,8 +33,6 @@ gem 'jbuilder', '~> 1.2'
 # For authentication
 gem 'devise'
 
-gem 'twitter-bootswatch-rails'
-
 gem 'faker'
 
 gem 'nokogiri'

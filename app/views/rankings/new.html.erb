@@ -6,7 +6,7 @@
 
 <ul id="teams" class="span4">
 	<% @team_group.teams.each do |t| %>
-		<li class="ui-state-default well well-small"
+		<li class="ui-state-default small-well"
 				id="team_id_<%= t.id %>"><%= t.nickname %></li>
 	<% end %>
 </ul>
