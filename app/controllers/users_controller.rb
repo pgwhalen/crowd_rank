@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
   		sign_in @user
+      user_group = UserGroup.find_by_name("Everyone")
+      @user.user_groups << user_group
   		flash[:success] = "Success"
   		redirect_to root_url
   	else

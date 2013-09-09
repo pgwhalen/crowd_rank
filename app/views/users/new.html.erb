@@ -1,2 +1,23 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<fieldset>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true, class: "input-small" %></div>
+
+  <div><%= f.label :username %><br />
+  <%= f.text_field :username %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password, placeholder: "8 characters at least..." %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, placeholder: "Uno mas" %></div>
+
+  <div><%= f.submit "Sign up" %></div>
+ </fieldset>
+<% end %>
+
+<%= render "devise/shared/links" %>
