@@ -4,10 +4,13 @@
 <h1> not signed in </hi>
 <% end %>
 
-<ul id="teams" class="span4">
+<ul id="teams" class="list-group">
 	<% @team_group.teams.each do |t| %>
-		<li class="ui-state-default small-well"
-				id="team_id_<%= t.id %>"><%= t.nickname %></li>
+		<li class="list-group-item"
+				id="team_id_<%= t.id %>">
+				<span class="badge">14</span>
+				<%= t.nickname %>
+		</li>
 	<% end %>
 </ul>
 
