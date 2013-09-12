@@ -2,22 +2,38 @@
 <div class="span4">
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-horizontal") do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, class: "input-small" %></div>
+  <div>
+    <%= f.label :email, class: "control-label" %>
+    <br />
+    <%= f.email_field :email, autofocus: true, class: "input-small" %>
+  </div>
+  <span class="help-block">This won't be shared with anyone - we only use it to get in contact with you</span>
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
+  <div>
+    <%= f.label :username %>
+    <br />
+    <%= f.text_field :username %>
+  </div>
+  <span class="help-block">Identifies you to other users</span>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password, placeholder: "8 characters at least..." %></div>
+  <div>
+    <%= f.label :password %>
+    <br />
+    <%= f.password_field :password%>
+  </div>
+  <span class="help-block">At least 8 characters long</span>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, placeholder: "Uno mas" %></div>
-
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.label :password_confirmation %>
+    <br />
+    <%= f.password_field :password_confirmation%>
+  </div>
+  
+  <div>
+    <%= f.submit "Sign up" %>
+  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
