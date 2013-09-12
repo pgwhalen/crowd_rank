@@ -7,12 +7,15 @@ namespace :scrape do
 			doc = Nokogiri::HTML(open("https://espn.go.com/nfl/powerrankings"))
 			rows = doc.css(".evenrow") + doc.css(".oddrow")
 
+			user = User.find_by_username("ESPN")
+
 			ranks = {}
 			rows.each do |r|
-				ranks[r.css("a").text] = r.css(".pr-rank").text.to_i
+				ranks[r.css(".pr-rank").text.to_i] = r.css("a").text
 			end
+			json = { ranks: ranks, user_id: user.id }
 
-			puts ranks
+			puts json
 		end
 	end
 end
