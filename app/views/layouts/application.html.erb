@@ -13,8 +13,6 @@
 	<p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-<%= yield %>
-
   <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -27,8 +25,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav pull-right">
-            <li><a href="nfl">NFL</a></li>
-            <li><a href="nhl">NHL</a></li>
+            <li><%= link_to "NFL", TeamGroup.find_by_short_name("NFL")%></li>
+            <li><%= link_to "NHL", TeamGroup.find_by_short_name("NHL")%></li>
             <li class="divider-vertical"></li>
             <% if user_signed_in? %>
               <li><%= link_to current_user.username, current_user %></li>
@@ -41,5 +39,10 @@
         </div><!--/.nav-collapse -->
       </div>
   </div>
+
+<div class="container center">
+  <%= yield %>
+</div>
+
 </body>
 </html>
