@@ -7,45 +7,45 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # NFL Teams
-afc_east = Team.create([{ full_name: 'Buffalo Bills', location: 'Buffalo', nickname: 'Saints' },
-												{ full_name: 'Miami Dolphins', location: 'Miami', nickname: 'Dolphins' },
-												{ full_name: 'New England Patriots', location: 'New England', nickname: 'Patriots' },
-												{ full_name: 'New York Jets', location: 'New York', nickname: 'Jets' }])
+afc_east = Team.create([{ full_name: 'Buffalo Bills', location: 'Buffalo', nickname: 'Saints', primary_color: '#00133F', secondary_color: 'EE2F2B' },
+												{ full_name: 'Miami Dolphins', location: 'Miami', nickname: 'Dolphins', primary_color: '#006B79', secondary_color: '#FF642A' },
+												{ full_name: 'New England Patriots', location: 'New England', nickname: 'Patriots', primary_color: '#00295B', secondary_color: '#EE2F2B' },
+												{ full_name: 'New York Jets', location: 'New York', nickname: 'Jets', primary_color: '#174032', secondary_color: '#FFFFFF' }])
 
-afc_north = Team.create([{ full_name: 'Baltimore Ravens', location: 'Baltimore', nickname: 'Ravens' },
-												 { full_name: 'Cincinnati Bengals', location: 'Cincinnati', nickname: 'Bengals' },
-												 { full_name: 'Cleveland Browns', location: 'Cleveland', nickname: 'Browns' },
-												 { full_name: 'Pittsburgh Steelers', location: 'Pittsburgh', nickname: 'Steelers' }])
+afc_north = Team.create([{ full_name: 'Baltimore Ravens', location: 'Baltimore', nickname: 'Ravens', primary_color: '#2B025B', secondary_color: '#F5A329' },
+												 { full_name: 'Cincinnati Bengals', location: 'Cincinnati', nickname: 'Bengals', primary_color: '#FF2700', secondary_color: '#101B24' },
+												 { full_name: 'Cleveland Browns', location: 'Cleveland', nickname: 'Browns', primary_color: '#4C230E', secondary_color: '#FF652B' },
+												 { full_name: 'Pittsburgh Steelers', location: 'Pittsburgh', nickname: 'Steelers', primary_color: '#000000', secondary_color: '#FFBF00' }])
 
-afc_south = Team.create([{ full_name: 'Houston Texans', location: 'Houston', nickname: 'Texans' },
-												 { full_name: 'Indianapolis Colts', location: 'Indianapolis', nickname: 'Colts' },
-												 { full_name: 'Jacksonville Jaguars', location: 'Jacksonville', nickname: 'Jaguars' },
-												 { full_name: 'Tennessee Titans', location: 'Tennessee', nickname: 'Titans' }])
+afc_south = Team.create([{ full_name: 'Houston Texans', location: 'Houston', nickname: 'Texans', primary_color: '#00133F', secondary_color: '#D6303A' },
+												 { full_name: 'Indianapolis Colts', location: 'Indianapolis', nickname: 'Colts', primary_color: '#00417E', secondary_color: '#FFFFFF' },
+												 { full_name: 'Jacksonville Jaguars', location: 'Jacksonville', nickname: 'Jaguars', primary_color: '#00839C', secondary_color: '#101B24' },
+												 { full_name: 'Tennessee Titans', location: 'Tennessee', nickname: 'Titans', primary_color: '#002C4B', secondary_color: '#EE2F2B' }])
 
-afc_west = Team.create([{ full_name: 'Denver Broncos', location: 'Denver', nickname: 'Broncos' },
-											  { full_name: 'Kansas City Chiefs', location: 'Kansas City', nickname: 'Chiefs' },
-											  { full_name: 'Oakland Raiders', location: 'Oakland', nickname: 'Raiders' },
-											  { full_name: 'San Diego Chargers', location: 'San Diego', nickname: 'Chargers' }])
+afc_west = Team.create([{ full_name: 'Denver Broncos', location: 'Denver', nickname: 'Broncos', primary_color: '#002E4D', secondary_color: '#FF652B' },
+											  { full_name: 'Kansas City Chiefs', location: 'Kansas City', nickname: 'Chiefs', primary_color: '#C60024', secondary_color: '#000000' },
+											  { full_name: 'Oakland Raiders', location: 'Oakland', nickname: 'Raiders', primary_color: '#000000', secondary_color: '#B5BBBD' },
+											  { full_name: 'San Diego Chargers', location: 'San Diego', nickname: 'Chargers', primary_color: '#05173C', secondary_color: '#0F83B8' }])
 
-nfc_east = Team.create([{ full_name: 'Dallas Cowboys', location: 'Dallas', nickname: 'Cowboys' },
-											  { full_name: 'New York Giants', location: 'New York', nickname: 'Giants' },
-											  { full_name: 'Philadelphia Eagles', location: 'Philadelphia', nickname: 'Eagles' },
-											  { full_name: 'Washington Redskins', location: 'Washington', nickname: 'Redskins' }])
+nfc_east = Team.create([{ full_name: 'Dallas Cowboys', location: 'Dallas', nickname: 'Cowboys', primary_color: '#002E4D', secondary_color: '#FFFFFF' },
+											  { full_name: 'New York Giants', location: 'New York', nickname: 'Giants', primary_color: '#003155', secondary_color: '#FFFFFF' },
+											  { full_name: 'Philadelphia Eagles', location: 'Philadelphia', nickname: 'Eagles', primary_color: '#002F30', secondary_color: '#EFEFEF' },
+											  { full_name: 'Washington Redskins', location: 'Washington', nickname: 'Redskins', primary_color: '#8C001A', secondary_color: '#FFBF00' }])
 
-nfc_north = Team.create([{ full_name: 'Chicago Bears', location: 'Chicago', nickname: 'Bears' },						 
-												 { full_name: 'Detroit Lions', location: 'Detroit', nickname: 'Lions' },
-												 { full_name: 'Green Bay Packers', location: 'Green Bay', nickname: 'Packers' },
-												 { full_name: 'Minnesota Vikings', location: 'Minnesota', nickname: 'Vikings' }])
+nfc_north = Team.create([{ full_name: 'Chicago Bears', location: 'Chicago', nickname: 'Bears', primary_color: '#00133F', secondary_color: '#FF652B' },						 
+												 { full_name: 'Detroit Lions', location: 'Detroit', nickname: 'Lions', primary_color: '#006EA1', secondary_color: '#F6F6F6' },
+												 { full_name: 'Green Bay Packers', location: 'Green Bay', nickname: 'Packers', primary_color: '#294239', secondary_color: '#FFBF00' },
+												 { full_name: 'Minnesota Vikings', location: 'Minnesota', nickname: 'Vikings', primary_color: '#240A67', secondary_color: '#FFAC2C' }])
 
-nfc_south = Team.create([{ full_name: 'Atlanta Falcons', location: 'Atlanta', nickname: 'Falcons' },
-												 { full_name: 'Carolina Panthers', location: 'Carolina', nickname: 'Panthers' },
-												 { full_name: 'New Orleans Saints', location: 'New Orleans', nickname: 'Saints' },
-												 { full_name: 'Tampa Bay Buccaneers', location: 'Tampa Bay', nickname: 'Buccaneers' }])
+nfc_south = Team.create([{ full_name: 'Atlanta Falcons', location: 'Atlanta', nickname: 'Falcons', primary_color: '#000000', secondary_color: '#231F20' },
+												 { full_name: 'Carolina Panthers', location: 'Carolina', nickname: 'Panthers', primary_color: '#0097C6', secondary_color: '#101B24' },
+												 { full_name: 'New Orleans Saints', location: 'New Orleans', nickname: 'Saints', primary_color: '#C6A876', secondary_color: '#000B17' },
+												 { full_name: 'Tampa Bay Buccaneers', location: 'Tampa Bay', nickname: 'Buccaneers', primary_color: '#665C50', secondary_color: '#D6303A' }])
 
-nfc_west = Team.create([{ full_name: 'Arizona Cardinals', location: 'Arizona', nickname: 'Cardinals' },
-											  { full_name: 'St. Louis Rams', location: 'St. Louis', nickname: 'Rams' },
-											  { full_name: 'San Fransisco 49ers', location: 'San Fransisco', nickname: '49ers' },
-											  { full_name: 'Seattle Seahawks', location: 'Seattle', nickname: 'Seahawks' }])
+nfc_west = Team.create([{ full_name: 'Arizona Cardinals', location: 'Arizona', nickname: 'Cardinals', primary_color: '#B10339', secondary_color: '#FFC40D' },
+											  { full_name: 'St. Louis Rams', location: 'St. Louis', nickname: 'Rams', primary_color: '#00295B', secondary_color: '#C1A05B' },
+											  { full_name: 'San Fransisco 49ers', location: 'San Fransisco', nickname: '49ers', primary_color: '#940029', secondary_color: '#D99E77' },
+											  { full_name: 'Seattle Seahawks', location: 'Seattle', nickname: 'Seahawks', primary_color: '#030F1F', secondary_color: '#283E67' }])
 
 TeamGroup.create({ full_name: 'American Football Conference East', short_name: "AFC East"}).teams << afc_east
 TeamGroup.create({ full_name: 'American Football Conference North', short_name: "AFC North"}).teams << afc_north
