@@ -59,7 +59,7 @@ TeamGroup.create({ full_name: 'National Football Conference West', short_name: "
 TeamGroup.create({ full_name: 'American Football Conference', short_name: 'AFC'}).teams << afc_east << afc_north << afc_south << afc_west
 TeamGroup.create({ full_name: 'National Football Conference', short_name: 'NFC'}).teams << nfc_east << nfc_north << nfc_south << nfc_west
 
-TeamGroup.create({ full_name: 'National Football League', short_name: 'NFL'}).teams << afc_east << afc_north << afc_south << afc_west << nfc_east << nfc_north << nfc_south << nfc_west
+TeamGroup.create({ full_name: 'National Football League', short_name: 'NFL', top_level: true}).teams << afc_east << afc_north << afc_south << afc_west << nfc_east << nfc_north << nfc_south << nfc_west
 
 						          
 
@@ -67,41 +67,49 @@ TeamGroup.create({ full_name: 'National Football League', short_name: 'NFL'}).te
 # TODO
 
 # NHL Teams
-Team.create([{ full_name: 'Anaheim Ducks', location: 'Anaheim', nickname: 'Ducks' },
-						 { full_name: 'Calgary Flames', location: 'Calgary', nickname: 'Flames' },
-						 { full_name: 'Edmonton Oilers', location: 'Edmonton', nickname: 'Oilers' },
-						 { full_name: 'Los Angeles Kings', location: 'Los Angeles', nickname: 'Kings' },
-						 { full_name: 'Phoenix Coyotes', location: 'Phoenix', nickname: 'Coyotes' },
-						 { full_name: 'San Jone Sharks', location: 'San Jose', nickname: 'Sharks' },
-						 { full_name: 'Vancouver Canucks', location: 'Vancouver', nickname: 'Canucks' },
+pacific = Team.create([{ full_name: 'Anaheim Ducks', location: 'Anaheim', nickname: 'Ducks' },
+						 					 { full_name: 'Calgary Flames', location: 'Calgary', nickname: 'Flames' },
+						 					 { full_name: 'Edmonton Oilers', location: 'Edmonton', nickname: 'Oilers' },
+						 					 { full_name: 'Los Angeles Kings', location: 'Los Angeles', nickname: 'Kings' },
+						 					 { full_name: 'Phoenix Coyotes', location: 'Phoenix', nickname: 'Coyotes' },
+						 					 { full_name: 'San Jone Sharks', location: 'San Jose', nickname: 'Sharks' },
+						 					 { full_name: 'Vancouver Canucks', location: 'Vancouver', nickname: 'Canucks' }
 
-						 { full_name: 'Chicago Blackhawks', location: 'Chicago', nickname: 'Blackhawks' },
-						 { full_name: 'Colorado Avalanche', location: 'Colorado', nickname: 'Avalanche' },
-						 { full_name: 'Dallas Stars', location: 'Dallas', nickname: 'Stars' },
-						 { full_name: 'Minnesota Wild', location: 'Minnesota', nickname: 'Wild' },
-						 { full_name: 'Nashville Predators', location: 'Nashville', nickname: 'Predators' },
-						 { full_name: 'St. Louis Blues', location: 'St. Louis', nickname: 'Blues' },
-						 { full_name: 'Winnipeg Jets', location: 'Winnipeg', nickname: 'Jets' },
+central = Team.create([{ full_name: 'Chicago Blackhawks', location: 'Chicago', nickname: 'Blackhawks' },
+						 					 { full_name: 'Colorado Avalanche', location: 'Colorado', nickname: 'Avalanche' },
+						 					 { full_name: 'Dallas Stars', location: 'Dallas', nickname: 'Stars' },
+						 					 { full_name: 'Minnesota Wild', location: 'Minnesota', nickname: 'Wild' },
+						 					 { full_name: 'Nashville Predators', location: 'Nashville', nickname: 'Predators' },
+						 					 { full_name: 'St. Louis Blues', location: 'St. Louis', nickname: 'Blues' },
+						 					 { full_name: 'Winnipeg Jets', location: 'Winnipeg', nickname: 'Jets' }])
 
-						 { full_name: 'Boston Bruins', location: 'Boston', nickname: 'Bruins' },
-						 { full_name: 'Buffalo Sabres', location: 'Buffalo', nickname: 'Sabres' },
-						 { full_name: 'Detroit Red Wings', location: 'Detroit', nickname: 'Red Wings' },
-						 { full_name: 'Florida Panthers', location: 'Florida', nickname: 'Panthers' },
-						 { full_name: 'Montreal Canadiens', location: 'Montreal', nickname: 'Canadiens' },
-						 { full_name: 'Ottawa Senators', location: 'Ottawa', nickname: 'Senators' },
-						 { full_name: 'Tampa Bay Lightning', location: 'Tampa Bay', nickname: 'Lightning' },
-						 { full_name: 'Toronto Maple Leafs', location: 'Toronto', nickname: 'Maple Leafs' },
+atlantic = Team.create([{ full_name: 'Boston Bruins', location: 'Boston', nickname: 'Bruins' },
+						 						{ full_name: 'Buffalo Sabres', location: 'Buffalo', nickname: 'Sabres' },
+						 						{ full_name: 'Detroit Red Wings', location: 'Detroit', nickname: 'Red Wings' },
+						 						{ full_name: 'Florida Panthers', location: 'Florida', nickname: 'Panthers' },
+						 						{ full_name: 'Montreal Canadiens', location: 'Montreal', nickname: 'Canadiens' },
+						 						{ full_name: 'Ottawa Senators', location: 'Ottawa', nickname: 'Senators' },
+						 						{ full_name: 'Tampa Bay Lightning', location: 'Tampa Bay', nickname: 'Lightning' },
+						 						{ full_name: 'Toronto Maple Leafs', location: 'Toronto', nickname: 'Maple Leafs' }])
 
-						 { full_name: 'Carolina Hurricanes', location: 'Carolina', nickname: 'Hurricanes' },
-						 { full_name: 'Columbus Blue Jackets', location: 'Columbus', nickname: 'Blue Jackets' },
-						 { full_name: 'New Jersey Devils', location: 'New Jersey', nickname: 'Devils' },
-						 { full_name: 'New York Islanders', location: 'New York', nickname: 'Islanders' },
-						 { full_name: 'New York Rangers', location: 'New York', nickname: 'Rangers' },
-						 { full_name: 'Philadelphia Flyers', location: 'Philadelphia', nickname: 'Flyers' },
-						 { full_name: 'Pittsburgh Penguins', location: 'Pittsburgh', nickname: 'Penguins' },
-						 { full_name: 'Washington Capitals', location: 'Washington', nickname: 'Capitals' },
+metropolitan = Team.create([{ full_name: 'Carolina Hurricanes', location: 'Carolina', nickname: 'Hurricanes' },
+						 								{ full_name: 'Columbus Blue Jackets', location: 'Columbus', nickname: 'Blue Jackets' },
+						 								{ full_name: 'New Jersey Devils', location: 'New Jersey', nickname: 'Devils' },
+						 								{ full_name: 'New York Islanders', location: 'New York', nickname: 'Islanders' },
+						 								{ full_name: 'New York Rangers', location: 'New York', nickname: 'Rangers' },
+						 								{ full_name: 'Philadelphia Flyers', location: 'Philadelphia', nickname: 'Flyers' },
+						 								{ full_name: 'Pittsburgh Penguins', location: 'Pittsburgh', nickname: 'Penguins' },
+														{ full_name: 'Washington Capitals', location: 'Washington', nickname: 'Capitals' }])
 
-	          ])
+TeamGroup.create({ full_name: 'Pacific Division', short_name: "Pacific"}).teams << pacific
+TeamGroup.create({ full_name: 'Central Division', short_name: "Central"}).teams << central
+TeamGroup.create({ full_name: 'Atlantic Division', short_name: "Atlantic"}).teams << atlantic
+TeamGroup.create({ full_name: 'Metropolitan Division', short_name: "Metropolitan"}).teams << metropolitan
+
+TeamGroup.create({ full_name: 'Western Conference', short_name: "West"}).teams << pacific << central
+TeamGroup.create({ full_name: 'Eastern Conference', short_name: "East"}).teams << atlantic << metropolitan
+
+TeamGroup.create({ full_name: 'National Hockey Leauge', short_name: "NHL"}).teams << pacific << central << atlantic << metropolitan
 
 # NBA Teams
 # TODO
