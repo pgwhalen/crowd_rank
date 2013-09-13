@@ -1,5 +1,14 @@
-<h2><%= @team_group.full_name %></h2>
 
-<% if user_signed_in? %>
-	<%= button_to "Rank", new_user_ranking_path(current_user.id), :method => "get", class: "btn btn-large btn-success text-right" %>
-<% end %>
+<div class="well">
+
+		<div >
+			<h2><%= @team_group.full_name %></h2>
+		</div>
+		<div>
+			<% if user_signed_in? %>
+				<%= button_to "Rank", new_user_ranking_path(current_user.id), :method => "get", class: "btn btn-large btn-success" %>
+			<% end %>
+		</div>
+		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+</div>
