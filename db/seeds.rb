@@ -73,7 +73,7 @@ pacific = Team.create([{ full_name: 'Anaheim Ducks', location: 'Anaheim', nickna
 						 					 { full_name: 'Los Angeles Kings', location: 'Los Angeles', nickname: 'Kings' },
 						 					 { full_name: 'Phoenix Coyotes', location: 'Phoenix', nickname: 'Coyotes' },
 						 					 { full_name: 'San Jone Sharks', location: 'San Jose', nickname: 'Sharks' },
-						 					 { full_name: 'Vancouver Canucks', location: 'Vancouver', nickname: 'Canucks' }
+						 					 { full_name: 'Vancouver Canucks', location: 'Vancouver', nickname: 'Canucks' }])
 
 central = Team.create([{ full_name: 'Chicago Blackhawks', location: 'Chicago', nickname: 'Blackhawks' },
 						 					 { full_name: 'Colorado Avalanche', location: 'Colorado', nickname: 'Avalanche' },
@@ -109,7 +109,7 @@ TeamGroup.create({ full_name: 'Metropolitan Division', short_name: "Metropolitan
 TeamGroup.create({ full_name: 'Western Conference', short_name: "West"}).teams << pacific << central
 TeamGroup.create({ full_name: 'Eastern Conference', short_name: "East"}).teams << atlantic << metropolitan
 
-TeamGroup.create({ full_name: 'National Hockey Leauge', short_name: "NHL"}).teams << pacific << central << atlantic << metropolitan
+TeamGroup.create({ full_name: 'National Hockey Leauge', short_name: "NHL", top_level: true}).teams << pacific << central << atlantic << metropolitan
 
 # NBA Teams
 # TODO
