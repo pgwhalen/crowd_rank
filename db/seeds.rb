@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # NFL Teams
-afc_east = Team.create([{ full_name: 'Buffalo Bills', location: 'Buffalo', nickname: 'Saints', primary_color: '#00133F', secondary_color: 'EE2F2B' },
+afc_east = Team.create([{ full_name: 'Buffalo Bills', location: 'Buffalo', nickname: 'Bills', primary_color: '#00133F', secondary_color: 'EE2F2B' },
 												{ full_name: 'Miami Dolphins', location: 'Miami', nickname: 'Dolphins', primary_color: '#006B79', secondary_color: '#FF642A' },
 												{ full_name: 'New England Patriots', location: 'New England', nickname: 'Patriots', primary_color: '#00295B', secondary_color: '#EE2F2B' },
 												{ full_name: 'New York Jets', location: 'New York', nickname: 'Jets', primary_color: '#174032', secondary_color: '#FFFFFF' }])
@@ -44,7 +44,7 @@ nfc_south = Team.create([{ full_name: 'Atlanta Falcons', location: 'Atlanta', ni
 
 nfc_west = Team.create([{ full_name: 'Arizona Cardinals', location: 'Arizona', nickname: 'Cardinals', primary_color: '#B10339', secondary_color: '#FFC40D' },
 											  { full_name: 'St. Louis Rams', location: 'St. Louis', nickname: 'Rams', primary_color: '#00295B', secondary_color: '#C1A05B' },
-											  { full_name: 'San Fransisco 49ers', location: 'San Fransisco', nickname: '49ers', primary_color: '#940029', secondary_color: '#D99E77' },
+											  { full_name: 'San Francisco 49ers', location: 'San Francisco', nickname: '49ers', primary_color: '#940029', secondary_color: '#D99E77' },
 											  { full_name: 'Seattle Seahawks', location: 'Seattle', nickname: 'Seahawks', primary_color: '#030F1F', secondary_color: '#283E67' }])
 
 TeamGroup.create({ full_name: 'American Football Conference East', short_name: "AFC East"}).teams << afc_east
