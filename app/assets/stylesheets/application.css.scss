@@ -12,3 +12,11 @@
  *= require_tree .
  *= require jquery.ui.all
  */
+
+ /* Highcharts */
+
+ #highchart {
+ 	min-width: 310px;
+ 	height: 400px;
+ 	margin: 0 auto
+ }

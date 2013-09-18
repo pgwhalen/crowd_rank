@@ -7,7 +7,6 @@
     <%= f.submit "Rank", class: "btn btn-large btn-success", id: "rank_button" %>
     <%= f.text_field "team_group", type: "hidden", value: @team_group.id %>
   </div>
-<% end %>
 </div>
 
 <div class="row marketing">
@@ -15,10 +14,47 @@
 		<ul id="teams" class="list-group span4">
 			<% @team_group.teams.each do |t| %>
 				<li class="list-group-item" id="team <%= t.id %>">
-						<%= t.nickname %>
+					<%= t.nickname %>
+					<%= f.text_field "comment_#{t.id}", class: "pull-right" %>
 				</li>
 			<% end %>
 		</ul>
 	</div>
 </div>
+	<% end %>
 
+<script type="text/javascript">
+$(function() {
+
+	$("#teams").sortable({
+		cancel: ".already-ranked"
+	});
+	$('#teams input').bind('click.sortable mousedown.sortable',function(e){
+    e.target.focus();
+  });
+
+	$("#rank_button").click(function () {
+		//var ranks = $("#teams").sortable("toArray");
+		var ranks = $(".list-group-item");
+		var rankings_json = {};
+		var actual_rank = 0;
+			for (var i = ranks.length - 1; i >= 0; i--) {
+				actual_rank++;
+				var team_id = ranks[i].id.split(" ")[1];
+				var comment = $("#ranking_comment_" + team_id).val();
+				rankings_json[team_id] = {
+					rank: actual_rank,
+					comment: comment
+				};
+			};
+		
+
+		$('<input>').attr({
+			type: 'hidden',
+			id: 'json',
+			name: 'ranking_json',
+			value: JSON.stringify(rankings_json)
+		}).appendTo('#ranking_form');
+	});
+});
+</script>
