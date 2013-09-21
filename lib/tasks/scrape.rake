@@ -85,5 +85,39 @@ namespace :scrape do
 			end
 		end
 
+		task fox: :environment do
+			user = User.find_by_username("Brian Billick (Fox)")
+			ranks = {}
+
+			## Scrape
+			doc = Nokogiri::HTML(open("http://msn.foxsports.com/nfl/powerRankings"))
+			rows = doc.css(".on") + doc.css(".off")
+
+			rows.each do |r|
+				td_tag_val = /td>(.*)</.match(r.to_s)
+				if td_tag_val
+					value = td_tag_val[1]
+					nickname = r.css('.teamLogo').text.strip
+					comment = r.css('.show_min').text.strip
+
+					ranks[value] = { nickname: nickname, comment: comment }
+				end
+			end
+
+			ActiveRecord::Base.transaction do
+				ranking = Ranking.create!(user_id: user.id, team_group_id: TeamGroup.find_by_short_name("NFL").id)
+
+				ranks_list = []
+				ranks.each do |rank, meta|
+					ranks_list << { team_id: Team.find_by_nickname(meta[:nickname]).id,
+													value: rank,
+													comment: meta[:comment],
+													ranking_id: ranking.id}
+				end
+
+				Rank.create!(ranks_list)
+			end
+		end
+
 	end
 end
