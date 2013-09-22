@@ -22,6 +22,7 @@ class RankingsController < ApplicationController
 												ranking_id: ranking.id}
 			end
 		end
+		Rank.create!(ranks_list)
 
 		redirect_to TeamGroup.find(team_group_id)
 	end
