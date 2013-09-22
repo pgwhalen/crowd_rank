@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922041714) do
+ActiveRecord::Schema.define(version: 20130922213052) do
 
   create_table "composite_rankings", force: true do |t|
     t.integer  "team_group_id"
@@ -47,10 +47,12 @@ ActiveRecord::Schema.define(version: 20130922041714) do
   end
 
   create_table "team_groups", force: true do |t|
-    t.string  "full_name"
-    t.string  "short_name"
-    t.boolean "top_level",  default: false
+    t.string "full_name"
+    t.string "short_name"
+    t.string "ancestry"
   end
+
+  add_index "team_groups", ["ancestry"], name: "index_team_groups_on_ancestry", using: :btree
 
   create_table "team_groups_teams", id: false, force: true do |t|
     t.integer "team_id",       null: false

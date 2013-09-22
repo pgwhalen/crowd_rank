@@ -41,6 +41,8 @@ gem 'nokogiri'
 
 gem 'highcharts-rails'
 
+gem 'ancestry'
+
 group :development, :test do
 	gem 'rspec-rails', '2.13.1'
 	gem 'spork-rails', github: 'sporkrb/spork-rails'

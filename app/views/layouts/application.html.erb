@@ -29,7 +29,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Leauges <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <% TeamGroup.all.each do |tg| %>
-                  <% if tg.top_level %>
+                  <% if tg.root? %>
                     <li><%= link_to tg.short_name, tg %></li>
                   <% end %>
                 <% end %>
