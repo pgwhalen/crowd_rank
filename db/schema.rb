@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915040623) do
+ActiveRecord::Schema.define(version: 20130922041714) do
+
+  create_table "composite_rankings", force: true do |t|
+    t.integer  "team_group_id"
+    t.integer  "user_group_id"
+    t.datetime "period_start_at"
+    t.datetime "period_end_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "composite_ranks", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "composite_ranking_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rankings", force: true do |t|
     t.integer  "user_id"
