@@ -21,9 +21,19 @@
 		<button id="show_all" class="btn btn-default">Show all Teams</button>
 		<button id="hide_all" class="btn btn-default">Hide all Teams</button>
 	</div>
-	<div class="btn-group btn-group-sm">
-		<button id="show_all" class="btn btn-default">NFC West</button>
-		<button id="hide_all" class="btn btn-default">NFC East</button>
+	<div class="btn-group btn-group-sm dropup">
+		<button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+			View Groups     <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<% @child_team_groups.each do |l| %>
+				<li>
+					<a id="<%= l.id.to_s + '_team_group_view' %>" class="team_group_view">
+						<%= l.short_name %>
+					</a>
+				</li>
+			<% end %>
+		</ul>
 	</div>
 </div>
 
@@ -52,33 +62,34 @@ $(function() {
 	  series: <%= raw @series.to_json %>
 	};
 
-	var chart = new Highcharts.Chart(options);
+	chart = new Highcharts.Chart(options);
 
-	$("#show_all").click(function() {
-		// this redraw funny business is for performance reasons, otherwise it takes
-		// like a second because it redraws every time.
-		var _redraw = chart._redraw;
-		chart.redraw = function() {};
-
+	show_all = function() {
 		for (var i = 0; i < options.series.length; i++) {
-			chart.get(options.series[i].id).show();
+			chart.get(options.series[i].id).setVisible(true, false)
 		}
+	};
 
-		chart.redraw = _redraw;
-		chart.redraw();
+	hide_all = function() {
+		for (var i = 0; i < options.series.length; i++) {
+			chart.get(options.series[i].id).setVisible(false, false)
+		}
+	};
+
+	$("#show_all").click(show_all);
+
+	$("#hide_all").click(hide_all);
+
+	$(".team_group_view").click(function(e) {
+		hide_all();
+
+		var team_ids = team_group_team_ids[e.target.id.split("_")[0]]
+		for (var i = 0; i < team_ids.length; i++) {
+			chart.get(team_ids[i]).setVisible(true, false);
+		}
 	});
 
-	$("#hide_all").click(function() {
-		var _redraw = chart._redraw;
-		chart.redraw = function() {};
-
-		for (var i = 0; i < options.series.length; i++) {
-			chart.get(options.series[i].id).hide();
-		}
-
-		chart.redraw = _redraw;
-		chart.redraw();
-	});
+	var team_group_team_ids = <%= raw @team_group_team_ids.to_json %>;
 
 });
 </script>
