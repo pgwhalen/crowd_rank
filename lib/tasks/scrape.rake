@@ -85,6 +85,7 @@ namespace :scrape do
 			end
 		end
 
+		desc "Scrape Fox (Brian Billick)"
 		task fox: :environment do
 			user = User.find_by_username("Brian Billick (Fox)")
 			ranks = {}
@@ -104,6 +105,7 @@ namespace :scrape do
 				end
 			end
 
+			## Database
 			ActiveRecord::Base.transaction do
 				ranking = Ranking.create!(user_id: user.id, team_group_id: TeamGroup.find_by_short_name("NFL").id)
 
@@ -119,5 +121,14 @@ namespace :scrape do
 			end
 		end
 
+		desc "Run every nfl scrape"
+		task nfl: :environment do
+			tasks = ["espn", "si", "fox"]
+			if true
+				tasks.each do |t|
+					Rake::Task["nfl:" + t].invoke
+				end
+			end
+		end
 	end
 end
