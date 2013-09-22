@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+#
+UserGroup.create!(name: "Everyone")
+
 # NFL Teams
 afc_east = Team.create([{ full_name: 'Buffalo Bills', location: 'Buffalo', nickname: 'Bills', primary_color: '#00133F', secondary_color: 'EE2F2B' },
 												{ full_name: 'Miami Dolphins', location: 'Miami', nickname: 'Dolphins', primary_color: '#006B79', secondary_color: '#FF642A' },
