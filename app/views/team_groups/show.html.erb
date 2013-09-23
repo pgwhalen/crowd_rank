@@ -3,6 +3,7 @@
 	<div class="row-fluid">
 		<div class="span8">
 			<h2 class="text-center"><%= @team_group.full_name %></h2>
+			<h4 class="text-center">Group: <%= link_to @user_group.name, @user_group %></h4>
 		</div>
 		<div class="text-center">
 			<% if user_signed_in? %>
@@ -46,7 +47,7 @@ $(function() {
 	    type: 'spline'
 	  },
 	  title: {
-	    text: 'NFL Rankings'
+	    text: '<%= @team_group.short_name.to_s %>' + ' Rankings'
 	  },
 	  xAxis: {
 	    categories: <%= raw @time_periods.to_json %>

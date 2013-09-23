@@ -1,0 +1,7 @@
+<h2><%= @user_group.name %></h2>
+
+<ul>
+	<% @user_group.users.each do |u| %>
+		<li class="list-group-item"><%= link_to u.username, u %></li>
+	<% end %>
+</ul>
