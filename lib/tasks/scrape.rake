@@ -126,7 +126,11 @@ namespace :scrape do
 			tasks = ["espn", "si", "fox"]
 			if DateTime.now.utc.wday == 2  # this is a Heroku Scheduler hack so it only runs on tuesday
 				tasks.each do |t|
-					Rake::Task["nfl:" + t].invoke
+					begin
+						Rake::Task["nfl:" + t].invoke
+					rescue
+						puts "nfl:" + t + " failed"
+					end
 				end
 				team_group_id = TeamGroup.find_by_short_name("NFL").id
 				user_group_id = UserGroup.find_by_name("Everyone").id
