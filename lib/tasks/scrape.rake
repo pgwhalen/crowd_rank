@@ -124,10 +124,13 @@ namespace :scrape do
 		desc "Run every nfl scrape"
 		task nfl: :environment do
 			tasks = ["espn", "si", "fox"]
-			if true
+			if DateTime.now.utc.wday == 2  # this is a Heroku Scheduler hack so it only runs on tuesday
 				tasks.each do |t|
 					Rake::Task["nfl:" + t].invoke
 				end
+				team_group_id = TeamGroup.find_by_short_name("NFL").id
+				user_group_id = UserGroup.find_by_name("Everyone").id
+				Rake::Task["composite:clean_and_recompile"].invoke(team_group_id, user_group_id)
 			end
 		end
 	end
