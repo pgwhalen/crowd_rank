@@ -121,21 +121,55 @@ namespace :scrape do
 			end
 		end
 
-		desc "Run every nfl scrape"
-		task nfl: :environment do
-			tasks = ["espn", "si", "fox"]
-			if DateTime.now.utc.wday == 2  # this is a Heroku Scheduler hack so it only runs on tuesday
-				tasks.each do |t|
-					begin
-						Rake::Task["nfl:" + t].invoke
-					rescue
-						puts "nfl:" + t + " failed"
-					end
-				end
-				team_group_id = TeamGroup.find_by_short_name("NFL").id
-				user_group_id = UserGroup.find_by_name("Everyone").id
-				Rake::Task["composite:clean_and_recompile"].invoke(team_group_id, user_group_id)
+		desc "Scrape NBC"
+		task nbc: :environment do
+
+		end
+
+		desc "Scrape Yahoo"
+		task yahoo: :environment do
+
+		end
+
+		desc "Scrape CBS"
+		task cbs: :environment do
+			user = User.find_by_username("SOMETHING")
+			ranks = {}
+
+			## Scrape
+			doc = Nokogiri::HTML(open("http://www.cbssports.com/nfl/writer/pat-kirwan/23817099/nfl-power-rankings-impressive-bears-dolphins-chiefs-remain-on-rise"))
+			p_tags = doc.xpath("//p").last(32)
+			strong_tags = doc.xpath("//p//strong")
+
+			strong_tags.each do |st|
+				val, full_name = st.text.gsub(":", "").split(". ")
+				ranks[val.to_i] = { full_name: full_name }				
+			end
+
+			rank_count = 1
+			p_tags.each do |pt|
+
 			end
 		end
 	end
+
+	desc "Run every nfl scrape"
+	task nfl: :environment do
+		tasks = ["espn", "si", "fox"]
+		if DateTime.now.utc.wday == 2  # this is a Heroku Scheduler hack so it only runs on tuesday
+			tasks.each do |t|
+				begin
+					Rake::Task["scrape:nfl:" + t].invoke
+				rescue => e
+					puts "--------------------"
+					puts "rake scrape:nfl:" + t + " failed"
+					puts e.message
+				end
+			end
+			team_group_id = TeamGroup.find_by_short_name("NFL").id
+			user_group_id = UserGroup.find_by_name("Everyone").id
+			Rake::Task["composite:clean_and_recompile"].invoke(team_group_id, user_group_id)
+		end
+	end
+
 end
