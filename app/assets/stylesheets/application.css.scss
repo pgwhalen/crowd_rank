@@ -11,12 +11,28 @@
  *= require_self
  *= require_tree .
  *= require jquery.ui.all
+ *= require font-awesome
  */
 
- /* Highcharts */
+/* Highcharts */
 
- #highchart {
+#highchart {
  	min-width: 310px;
  	height: 400px;
  	margin: 0 auto
- }
+}
+
+ /* Footer */
+
+body {
+ 	height: 100%;
+}
+
+page {
+	height: 100%;
+}
+
+.footer {
+ 	background-color: #1f2c39;
+ 	height: 100%
+}

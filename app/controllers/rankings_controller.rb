@@ -31,7 +31,6 @@ class RankingsController < ApplicationController
 		@team_group = params[:team_group]
 		@team_group = TeamGroup.find_by_short_name("NFL") # fake line for now; rankings/new should be a GET with a team_group_id in URL
 
-		# TODO: this should take the latest 'everyone' composite
-		@teams = Ranking.where(team_group_id: @team_group.id).last.ranks #
+		@teams = CompositeRanking.where(team_group_id: @team_group.id).order(:period_end_at).last.composite_ranks.map { |cr| cr.team } #
 	end
 end

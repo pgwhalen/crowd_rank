@@ -4,7 +4,7 @@ include DateHelper
 class TeamGroupsController < ApplicationController
 
 	def show
-		@team_group = TeamGroup.includes(:teams).find(params[:id])
+		@team_group = TeamGroup.includes(:teams).find_by_short_name(params[:id])
 		@user_group = params[:user_group] ? UserGroup.find(params[:user_group]) : UserGroup.find_by_name("Everyone")
 
 		@series = []
@@ -20,7 +20,7 @@ class TeamGroupsController < ApplicationController
 			@team_group_team_ids[tg.id] = tg.teams.map { |t| t.id }
 		end
 
-		# Load composed ranking data from db
+		# Load composite ranking data from db
 		composite_rankings = CompositeRanking.includes(:composite_ranks).where(team_group_id: @team_group.id, user_group_id: @user_group.id).order(:period_start_at)
 		@time_periods = []
 		composite_rankings.each do |cr|
@@ -30,6 +30,22 @@ class TeamGroupsController < ApplicationController
 			end
 		end
 
+		# Calculate biggest movers
+		movement = {}
+		composite_rankings[-2].composite_ranks.each do |r|
+			movement[r.team_id] = r.value
+		end
+		composite_rankings.last.composite_ranks.each do |r|
+			movement[r.team_id] = movement[r.team_id] - r.value
+		end
 
+		teams_by_change = movement.sort_by { |team, val| val }
+		@biggest_uppers = teams_by_change.last(3).reverse
+		@biggest_downers = teams_by_change.first(3)
+
+		puts "*********** UP"
+		puts "#{@biggest_uppers}"
+		puts "*********** DOWN"
+		puts "#{@biggest_downers}"
 	end
 end

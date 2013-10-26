@@ -43,6 +43,8 @@ gem 'highcharts-rails'
 
 gem 'ancestry'
 
+gem 'font-awesome-rails'
+
 group :development, :test do
 	gem 'rspec-rails', '2.13.1'
 	gem 'spork-rails', github: 'sporkrb/spork-rails'
