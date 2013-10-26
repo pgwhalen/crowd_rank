@@ -10,7 +10,7 @@ class TeamGroupsController < ApplicationController
 		@series = []
 		# Load team data (nicknames, colors) from db
 		@team_group.teams.order(:nickname).each do |team|
-			@series << { id: team.id, name: team.nickname, color: team.primary_color, data: [] }
+			@series << { id: team.id, name: team.nickname, color: team.primary_color, data: [], marker: { enabled: false, symbol: 'circle' } }
 		end
 
 		# Load teams and visions from db for easy chart modification
