@@ -1,0 +1,21 @@
+<div class="row" id="main">
+  <div class="col-sm-4">
+  	<%= @user.username %>
+  	<%= @ranking.team_group_id %>
+  </div>
+  <div class="col-sm-8" id="ranking-col">
+  	<% @ranks.each do |r| %>
+  		<%= r.value %>
+  		<%= r.team.nickname %>
+  		<% if @diffs[r.team_id] < 0 %>
+  			<%= fa_icon "caret-down lg", text: @diffs[r.team_id] %>
+  		<% elsif @diffs[r.team_id] > 0 %>
+  			<%= fa_icon "caret-up lg", text: @diffs[r.team_id] %>
+  		<% else %>
+  			-
+  		<% end %>
+  		<p class="comment"><%= r.comment %></p>
+  		<br>
+  	<% end %>
+  </div>
+</div>

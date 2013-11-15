@@ -1,1 +1,9 @@
-<h1> <%= @user.username %> </h1>
+<div class="row">
+  <div class="col-sm-4"><h3><%= @user.username %></h3></div>
+  <div class="col-sm-8">
+  	<% @rankings.each do |r| %>
+  		<%= link_to r.created_at, user_ranking_path(@user, r) %>
+  		<br>
+  	<% end %>
+  </div>
+</div>

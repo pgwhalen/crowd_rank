@@ -42,10 +42,5 @@ class TeamGroupsController < ApplicationController
 		teams_by_change = movement.sort_by { |team, val| val }
 		@biggest_uppers = teams_by_change.last(3).reverse
 		@biggest_downers = teams_by_change.first(3)
-
-		puts "*********** UP"
-		puts "#{@biggest_uppers}"
-		puts "*********** DOWN"
-		puts "#{@biggest_downers}"
 	end
 end
